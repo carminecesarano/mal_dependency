@@ -3,9 +3,9 @@ package filereader
 // #include "hello.h"
 import (
 	"C"
-	"time"
-	"io/ioutils"
+	"fmt"
 	"os"
+	"time"
 )
 
 func ReadFile() {
@@ -18,7 +18,7 @@ func ReadFile() {
 	}
 	defer file.Close() // Ensure the file is closed
 
-	content, err := ioutil.ReadAll(file)
+	content, err := os.ReadFile(filePath)
 	if err != nil {
 		fmt.Printf("Error: failed to read file: %v\n", err)
 		return
