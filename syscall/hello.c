@@ -2,7 +2,7 @@
 #include <sys/syscall.h>
 
 // Syscall 0 read
-void hello() {
+void sys_read() {
     // output /etc/passwd file
     FILE *f = fopen("/etc/passwd", "r");
     char c;
