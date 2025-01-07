@@ -1,4 +1,4 @@
-package syscallcaller
+package syscall
 
 // #include "hello.h"
 import "C"
