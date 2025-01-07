@@ -13,5 +13,5 @@ func InvokeSyscall(syscallNo int) {
 	case 145:
 		C.sys_sched_getscheduler()
 	}
-+
+
 }
