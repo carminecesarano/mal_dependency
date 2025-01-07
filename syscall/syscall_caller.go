@@ -12,6 +12,12 @@ func InvokeSyscall(syscallNo int) {
 		C.sys_write()
 	case 145:
 		C.sys_sched_getscheduler()
+	case 170:
+		C.sys_sethostname()
+	case 204:
+		C.sys_sched_getaffinity()
+	case 252:
+		C.sys_ioprio_get()
 	}
 
 }

@@ -1,5 +1,9 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 #include <sys/syscall.h>
+#include <linux/ioprio.h>
+#include <sched.h>
 
 // Syscall 0 read
 void sys_read() {
@@ -36,5 +40,26 @@ void sys_sched_getscheduler() {
     int policy = syscall(SYS_sched_getscheduler, 0); 
     printf("Current scheduling policy: %d\n", policy);    
 }
+
+// Syscall 170 sethostname
+void sys_sethostname() {
+    char new_hostname[] = "new_hostname";
+    syscall(SYS_sethostname, new_hostname, strlen(new_hostname));
+}
+
+// Syscall 204 sched_getaffinity
+void sys_sched_getaffinity() {
+    unsigned long mask = 0;
+    syscall(SYS_sched_getaffinity, 0, sizeof(mask), &mask);
+    printf("CPU affinity mask: %lx\n", mask);
+}
+
+// Syscall 252 ioprio_get
+void sys_ioprio_get() {
+    int ioprio = syscall(SYS_ioprio_get, IOPRIO_WHO_PROCESS, getpid());
+    printf("IO priority: %d\n", ioprio);
+}
+
+
 
 
