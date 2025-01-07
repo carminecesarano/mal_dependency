@@ -26,7 +26,7 @@ void sys_write_assembly() {
 }
  
 // Syscall 1 write via syscall
-void sys_write_c() {
+void sys_write() {
     const char *message = "Hello via syscall!\n";
     syscall(SYS_write, 1, message, 19);
 }
