@@ -4,15 +4,28 @@
 #include <sys/syscall.h>
 #include <linux/ioprio.h>
 #include <sched.h>
+#include <fcntl.h>
 
 // Syscall 0 read
 void sys_read() {
-    // output /etc/passwd file
-    FILE *f = fopen("/etc/passwd", "r");
-    char c;
-    while ((c = fgetc(f)) != EOF) {
-        printf("%c", c);
-    }
+    char buffer[100];
+    int fd;
+    long no_bytes_read;    
+
+    fd = syscall(SYS_open, "/etc/passwd", O_RDONLY);    // ID = 2      
+    no_bytes_read = syscall(SYS_read, fd, buffer, 100); // ID = 0
+    syscall(SYS_write, 1, buffer, no_bytes_read);       // ID = 1
+}
+
+// Syscall 0 read via clib
+void sys_read_clib() {
+    char buffer[100]; 
+    FILE *f;
+    size_t no_bytes_read;
+
+    f = fopen("/etc/passwd", "r");              // SYS_openat ID=257     [missing stack traces]
+    no_bytes_read = fread(buffer, 1, 100, f);   // SYS_read ID=0   [missing stack traces]
+    fwrite(buffer, 1, no_bytes_read, stdout);   // SYS_write ID=1  [missing stack traces]
 }
 
 // Syscall 1 write via assembly
@@ -28,7 +41,7 @@ void sys_write_assembly() {
         : "rcx", "r11", "memory"
     );
 }
- 
+
 // Syscall 1 write via syscall
 void sys_write() {
     const char *message = "Hello via syscall!\n";
