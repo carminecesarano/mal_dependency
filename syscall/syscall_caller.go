@@ -1,4 +1,4 @@
-package testcgo
+package syscall
 
 // #include "syscall_wrapper.h"
 import "C"
