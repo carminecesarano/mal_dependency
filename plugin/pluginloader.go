@@ -1,10 +1,11 @@
-package plugin
+package pluginloader
 
 import (
 	"fmt"
 	"plugin"
 )
 
+// LoadAndInvokePlugin loads the plugin and invokes the specified function
 func LoadAndInvokePlugin() error {
 	// Load the plugin dynamically
 	p, err := plugin.Open("./plugin.so")
