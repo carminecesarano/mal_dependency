@@ -6,15 +6,15 @@ import (
 )
 
 // LoadAndInvokePlugin loads the plugin and invokes the specified function
-func LoadAndInvokePlugin() error {
+func LoadAndInvokePlugin(pluginPath string, pluginFunc string) error {
 	// Load the plugin dynamically
-	p, err := plugin.Open("./plugin.so")
+	p, err := plugin.Open(pluginPath)
 	if err != nil {
 		return fmt.Errorf("error loading plugin: %w", err)
 	}
 
 	// Look up the symbol (function) from the loaded plugin
-	sym, err := p.Lookup("PluginFunc")
+	sym, err := p.Lookup(pluginFunc)
 	if err != nil {
 		return fmt.Errorf("error looking up symbol: %w", err)
 	}
