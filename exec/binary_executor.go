@@ -5,7 +5,7 @@ import (
         "os/exec"
 )
 
-func ExecBinary(string binaryPath) {
+func ExecBinary(binaryPath string) {
 
         cmd := exec.Command(binaryPath)
         output, err := cmd.Output()
