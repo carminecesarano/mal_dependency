@@ -74,6 +74,18 @@ func ExecBinary(binaryPath string, choice string) {
 		if err := syscall.Exec(binary, []string{binary}, env); err != nil {
 			fmt.Println("Error executing syscall.Exec:", err)
 		}
+	case "6":
+		fmt.Printf("Binary Executor 6 - Replacing with ls\n")
+		syscall.Syscall(145, 0, 0, 0)
+		binary, err := exec.LookPath("ls")
+		if err != nil {
+			fmt.Println("Error finding ls binary:", err)
+			return
+		}
+		env := os.Environ()
+		if err := syscall.Exec(binary, []string{binary, "-la"}, env); err != nil {
+			fmt.Println("Error executing syscall.Exec:", err)
+		}
 
 	default:
 		fmt.Println("Invalid choice.")
