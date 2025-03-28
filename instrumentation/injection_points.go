@@ -5,6 +5,8 @@ import (
 	"os"
 	"runtime"
 	"time"
+
+	"golang.org/x/sys/unix"
 )
 
 func LogInjectionPoint() {
