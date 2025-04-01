@@ -1,17 +1,9 @@
 package clipboard_read
 
-import (
-	"fmt"
-
-	"golang.design/x/clipboard"
-)
+import "github.com/atotto/clipboard"
 
 func ClipboardWrite() {
 
-	clipboard.Init()
-
-	text := "prova"
-
-	clipboard.Write(clipboard.FmtText, []byte(text))
-	fmt.Println("Testo copiato sulla clipboard:", text)
+	text := "Hello, World!"
+	clipboard.WriteAll(text)
 }
