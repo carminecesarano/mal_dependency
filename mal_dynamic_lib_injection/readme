@@ -1,0 +1,18 @@
+To compile the library: 
+gcc -shared -fPIC -o malicious.so library.c -ldl
+
+
+In C/C++, when you mark a function with __attribute__((constructor)), you’re telling the dynamic linker:
+
+“Run this function automatically when the shared object (.so) is loaded into memory.”
+
+
+----------
+
+If a process calls dlopen("malicious.so", RTLD_NOW), then:
+
+The ELF loader maps the .so into memory.
+
+It executes any functions marked with __attribute__((constructor)) right after mapping, before returning control to the program.
+
+

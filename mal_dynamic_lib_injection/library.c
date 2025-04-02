@@ -4,5 +4,5 @@
 
 __attribute__((constructor))
 void init() {
-    system("echo 'MALICIOUS PAYLOAD RAN' >> /tmp/hijack.log");
+    //system("echo 'MALICIOUS PAYLOAD RAN' >> /tmp/hijack.log");
 }
