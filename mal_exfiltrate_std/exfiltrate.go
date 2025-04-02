@@ -1,4 +1,4 @@
-package exfiltrate
+package mal_exfiltrate_std
 
 import (
 	"bytes"

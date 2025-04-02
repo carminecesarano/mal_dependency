@@ -1,4 +1,4 @@
-package exfiltrate_std
+package mal_exfiltrate
 
 import (
 	"fmt"
