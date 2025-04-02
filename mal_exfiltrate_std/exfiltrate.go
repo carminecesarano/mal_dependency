@@ -1,4 +1,4 @@
-package exfiltrate_v1
+package exfiltrate
 
 import (
 	"bytes"
