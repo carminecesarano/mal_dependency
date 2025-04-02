@@ -1,4 +1,4 @@
-package mal_download_std
+package mal_download
 
 import (
 	"fmt"
