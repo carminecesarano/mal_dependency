@@ -1,4 +1,4 @@
-package mal_base64_exec
+package m1_exec
 
 import (
 	"encoding/base64"

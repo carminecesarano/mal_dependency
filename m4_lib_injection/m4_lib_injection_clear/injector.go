@@ -1,4 +1,4 @@
-package mal_dynamic_libinjection
+package m4_libinjection
 
 /*
 #cgo LDFLAGS: -ldl

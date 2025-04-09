@@ -1,4 +1,4 @@
-package mal_download
+package main
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"syscall"
 )
 
-func DownloadFile() {
+func PluginFunc() {
 	// Remote target
 	host := "127.0.0.1"
 	port := 8080

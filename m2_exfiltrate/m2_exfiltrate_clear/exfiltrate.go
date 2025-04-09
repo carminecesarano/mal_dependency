@@ -1,4 +1,4 @@
-package mal_exfiltrate
+package m2_exfiltrate
 
 import (
 	"fmt"

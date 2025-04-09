@@ -1,4 +1,4 @@
-package mal_clipboard_read
+package m3_clipboard
 
 import (
 	"github.com/atotto/clipboard"
