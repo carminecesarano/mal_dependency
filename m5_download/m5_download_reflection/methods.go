@@ -1,4 +1,4 @@
-package m5_download_reflect
+package m5_download_reflection
 
 import (
 	"fmt"
